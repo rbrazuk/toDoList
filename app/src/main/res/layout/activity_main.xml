@@ -6,28 +6,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/addTaskButton"
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/gridLayout">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_alignBottom="@+id/addTaskButton"
-        android:layout_toRightOf="@+id/addTaskButton"
-        android:layout_toEndOf="@+id/addTaskButton" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/addTaskButton"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:onClick="addTask" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/taskInput"
+            android:gravity="fill"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1" />
+
+    </GridLayout>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/addTaskButton"
+        android:id="@+id/tasksList"
+        android:layout_below="@+id/gridLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <!-- Dummy item for focus at startup -->
+    <LinearLayout
+        android:id="@+id/dummy_id"
+        android:orientation="vertical"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 </RelativeLayout>
