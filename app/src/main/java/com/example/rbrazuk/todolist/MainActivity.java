@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         taskList = (ListView) findViewById(R.id.tasksList);
 
-        taskArray.add("do stuff");
+
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,taskArray);
         taskList.setAdapter(arrayAdapter);
@@ -55,21 +55,12 @@ public class MainActivity extends AppCompatActivity {
         taskList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*
-                String taskToDelete = taskArray.get(position);
-                System.out.println(taskToDelete);
-                int index = taskArray.indexOf(position);
-                System.out.println(index);
-                //taskArray.remove(0);
-                arrayAdapter.notifyDataSetChanged();
-
-                System.out.println(taskToDelete);
-                */
 
                 String delete = taskArray.get(position);
+                System.out.println(position);
 
                 int index = taskArray.indexOf(delete);
-                System.out.println(index);
+
                 taskArray.remove(index);
 
                 arrayAdapter.notifyDataSetChanged();
